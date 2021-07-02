@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1ECC540F-FFB2-4649-BCF4-567DBA1F5F69}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GetirAPI</RootNamespace>
+    <AssemblyName>GetirAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <RegisterForComInterop>true</RegisterForComInterop>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net40\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Auth\Authentication.cs" />
+    <Compile Include="Auth\IAuthentication.cs" />
+    <Compile Include="Auth\Request\GetTokenRequest.cs" />
+    <Compile Include="Auth\Response\IGetTokenResponse.cs" />
+    <Compile Include="FoodOrders\IOrderOperation.cs" />
+    <Compile Include="FoodOrders\IOrderService.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\Definitions.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\ICancelReason.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IClient.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\ICourier.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IDeliveryAddress.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IDisplayInfo.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\ILocation.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IMessages.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IName.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IOptions.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IOrder.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IPaymentMethodText.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IProduct.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\IRestaurant.cs" />
+    <Compile Include="FoodOrders\JsonDefinitions\ITitle.cs" />
+    <Compile Include="FoodOrders\OrderOperation.cs" />
+    <Compile Include="FoodOrders\OrderService.cs" />
+    <Compile Include="FoodOrders\Request\GetCAFoodOrdersRequest.cs" />
+    <Compile Include="FoodOrders\Request\GetActiveFoodOrdersRequest.cs" />
+    <Compile Include="FoodOrders\Request\GetUAFoodOrdersRequest.cs" />
+    <Compile Include="FoodOrders\Response\FoodOrderMessageResponse.cs" />
+    <Compile Include="FoodOrders\Response\GetActiveFoodOrdersResponse.cs" />
+    <Compile Include="FoodOrders\Response\GetCAFoodOrdersResponse.cs" />
+    <Compile Include="FoodOrders\Response\GetUAFoodOrdersResponse.cs" />
+    <Compile Include="FoodOrders\Response\IFoodOrderMessageResponse.cs" />
+    <Compile Include="FoodOrders\Response\IGetActiveFoodOrdersResponse.cs" />
+    <Compile Include="FoodOrders\Response\IGetCAFoodOrdersResponse.cs" />
+    <Compile Include="FoodOrders\Response\IGetUAFoodOrdersResponse.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="Restaurant\IRestaurantService.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IClientDisplayName.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IDescription.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IMenuResponse.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IName.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IOption.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IOptionCategory.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IProduct.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\IProductCategory.cs" />
+    <Compile Include="Restaurant\JsonDefinitions\MenuResponse.cs" />
+    <Compile Include="Restaurant\RestaurantService.cs" />
+    <Compile Include="Utilities\Request\IHttpRequest.cs" />
+    <Compile Include="Auth\Response\GetTokenResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\RequestMaker.cs" />
+    <Compile Include="Utilities\WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
